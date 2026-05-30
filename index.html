@@ -3,25 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Temperature Converter - Simple Calculators</title>
-    <meta name="description" content="Instantly convert between Celsius, Fahrenheit, and Kelvin. Free, no ads, no tracking.">
+    <title>Simple Calculators</title>
+    <meta name="description" content="Free, instant-access calculators and unit converters for everyday use.">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>Temperature Converter</h1>
-        <div class="calculator">
-            <label for="celsius">Celsius:</label>
-            <input type="number" id="celsius" placeholder="°C" step="0.01">
-            
-            <label for="fahrenheit">Fahrenheit:</label>
-            <input type="number" id="fahrenheit" placeholder="°F" step="0.01">
-            
-            <label for="kelvin">Kelvin:</label>
-            <input type="number" id="kelvin" placeholder="K" step="0.01">
+        <h1>Simple Calculators</h1>
+        <p class="subtitle">Free, instant-access converters for everyday use. No ads, no tracking.</p>
+        
+        <div class="calculator-grid">
+            <a href="temperature.html" class="calculator-card">
+                <h2>Temperature</h2>
+                <p>Celsius, Fahrenheit, Kelvin</p>
+            </a>
+            <a href="length.html" class="calculator-card">
+                <h2>Length</h2>
+                <p>mm, cm, m, km, in, ft, yd, mi, nmi</p>
+            </a>
+            <a href="weight.html" class="calculator-card">
+                <h2>Weight</h2>
+                <p>mg, g, kg, oz, lb, stone, tons</p>
+            </a>
+            <a href="volume.html" class="calculator-card">
+                <h2>Volume</h2>
+                <p>mL, L, tsp, tbsp, fl oz, cup, pt, qt, gal</p>
+            </a>
+            <a href="#" class="calculator-card disabled">
+                <h2>Ingredients</h2>
+                <p>Weight ↔ Volume (coming soon)</p>
+            </a>
         </div>
-        <p class="hint">Enter a value in any field to convert to the other two.</p>
+        
+        <footer>
+            <p>&copy; <span id="year"></span> Simple Calculators. All rights reserved.</p>
+        </footer>
     </div>
-    <script src="script.js"></script>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>

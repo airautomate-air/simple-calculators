@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volume Converter - Simple Calculators</title>
+    <meta name="description" content="Instantly convert between milliliters, liters, teaspoons, tablespoons, fluid ounces, cups, pints, quarts, and gallons. Free, no ads, no tracking.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Volume Converter</h1>
+        <div class="calculator">
+            <div class="input-group">
+                <label for="volume-value">Volume:</label>
+                <input type="number" id="volume-value" placeholder="Enter value" step="any">
+            </div>
+            <div class="input-group">
+                <label for="volume-unit">Unit:</label>
+                <select id="volume-unit">
+                    <option value="ml">Milliliters (mL)</option>
+                    <option value="l">Liters (L)</option>
+                    <option value="tsp">Teaspoons (tsp)</option>
+                    <option value="tbsp">Tablespoons (tbsp)</option>
+                    <option value="fl-oz">Fluid Ounces (fl oz)</option>
+                    <option value="cup">Cups (cup)</option>
+                    <option value="pt">Pints (pt)</option>
+                    <option value="qt">Quarts (qt)</option>
+                    <option value="gal">Gallons (gal)</option>
+                </select>
+            </div>
+        </div>
+        <div class="results">
+            <h2>Conversions</h2>
+            <div class="result-item" id="result-ml">Milliliters: <span>-</span></div>
+            <div class="result-item" id="result-l">Liters: <span>-</span></div>
+            <div class="result-item" id="result-tsp">Teaspoons: <span>-</span></div>
+            <div class="result-item" id="result-tbsp">Tablespoons: <span>-</span></div>
+            <div class="result-item" id="result-fl-oz">Fluid Ounces: <span>-</span></div>
+            <div class="result-item" id="result-cup">Cups: <span>-</span></div>
+            <div class="result-item" id="result-pt">Pints: <span>-</span></div>
+            <div class="result-item" id="result-qt">Quarts: <span>-</span></div>
+            <div class="result-item" id="result-gal">Gallons: <span>-</span></div>
+        </div>
+        <p class="hint">Enter a value and select unit to see conversions to all other units.</p>
+    </div>
+    <script src="volume.js"></script>
+</body>
+</html>
