@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weight Converter - Simple Calculators</title>
+    <meta name="description" content="Instantly convert between milligrams, grams, kilograms, ounces, pounds, stone, and tons. Free, no ads, no tracking.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Weight Converter</h1>
+        <div class="calculator">
+            <div class="input-group">
+                <label for="weight-value">Weight:</label>
+                <input type="number" id="weight-value" placeholder="Enter value" step="any">
+            </div>
+            <div class="input-group">
+                <label for="weight-unit">Unit:</label>
+                <select id="weight-unit">
+                    <option value="mg">Milligrams (mg)</option>
+                    <option value="g">Grams (g)</option>
+                    <option value="kg">Kilograms (kg)</option>
+                    <option value="oz">Ounces (oz)</option>
+                    <option value="lb">Pounds (lb)</option>
+                    <option value="stone">Stone (stone)</option>
+                    <option value="ton">Tons (metric)</option>
+                    <option value="short-ton">Short tons (US)</option>
+                    <option value="long-ton">Long tons (UK)</option>
+                </select>
+            </div>
+        </div>
+        <div class="results">
+            <h2>Conversions</h2>
+            <div class="result-item" id="result-mg">Milligrams: <span>-</span></div>
+            <div class="result-item" id="result-g">Grams: <span>-</span></div>
+            <div class="result-item" id="result-kg">Kilograms: <span>-</span></div>
+            <div class="result-item" id="result-oz">Ounces: <span>-</span></div>
+            <div class="result-item" id="result-lb">Pounds: <span>-</span></div>
+            <div class="result-item" id="result-stone">Stone: <span>-</span></div>
+            <div class="result-item" id="result-ton">Tons (metric): <span>-</span></div>
+            <div class="result-item" id="result-short-ton">Short tons (US): <span>-</span></div>
+            <div class="result-item" id="result-long-ton">Long tons (UK): <span>-</span></div>
+        </div>
+        <p class="hint">Enter a value and select unit to see conversions to all other units.</p>
+    </div>
+    <script src="weight.js"></script>
+</body>
+</html>
