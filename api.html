@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculators API Documentation</title>
+    <meta name="description" content="RESTful API documentation for Simple Calculators unit conversion endpoints">
+    <link rel="stylesheet" href="style.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q5KY6BP0VV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-Q5KY6BP0VV');
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <a href="/" class="btn back-btn">← Back to Calculators</a>
+        </div>
+        
+        <h1>Simple Calculators API</h1>
+        <p>RESTful API for programmatic access to all unit conversion calculators</p>
+        
+        <div class="api-status">
+            <div class="status-item">
+                <span class="status-label">Status:</span>
+                <span class="status-value status-ok">Online</span>
+            </div>
+            <div class="status-item">
+                <span class="status-label">Version:</span>
+                <span class="status-value">1.0.0</span>
+            </div>
+            <div class="status-item">
+                <span class="status-label">Uptime:</span>
+                <span class="status-value">99.9%</span>
+            </div>
+        </div>
+        
+        <div class="api-section">
+            <h2>Getting Started</h2>
+            <p>The Simple Calculators API provides free access to unit conversion functionality through RESTful endpoints. All responses are in JSON format.</p>
+            
+            <div class="api-basics">
+                <h3>Base URL</h3>
+                <p><code>https://api.simplecalculators.com</code> (or your deployed domain)</p>
+                
+                <h3>Request Format</h3>
+                <p>All endpoints use GET requests with query parameters:</p>
+                <div class="code-block">
+                    <code>GET /api/[converter-type]?value=[number]&from=[unit]&to=[unit]</code>
+                </div>
+                
+                <h3>Response Format</h3>
+                <p>Successful responses return JSON:</p>
+                <div class="code-block">
+{
+  "value": 25,
+  "from": "celsius",
+  "to": "fahrenheit",
+  "result": 77
+}
+                </div>
+                
+                <h3>Error Responses</h3>
+                <p>Errors return JSON with HTTP status codes:</p>
+                <div class="code-block">
+{
+  "error": "Invalid unit: 'xyz'. Valid units are: celsius, fahrenheit, kelvin"
+}
+                </div>
+            </div>
+        </div>
+        
+        <div class="api-section">
+            <h2>Available Endpoints</h2>
+            
+            <div class="endpoint-group">
+                <h3>🌡️ Temperature Converter</h3>
+                <p>Convert between Celsius, Fahrenheit, and Kelvin</p>
+                <div class="endpoint-detail">
+                    <span class="endpoint-method">GET</span>
+                    <span class="endpoint-path">/api/temperature</span>
+                </div>
+                <div class="endpoint-params">
+                    <strong>Parameters:</strong><br>
+                    <code>value</code> (required): Number to convert<br>
+                    <code>from</code> (required): celsius, fahrenheit, kelvin<br>
+                    <code>to</code> (required): celsius, fahrenheit, kelvin
+                </div>
+                <div class="endpoint-example">
+                    <strong>Example:</strong><br>
+                    <code>/api/temperature?value=100&from=celsius&to=fahrenheit</code><br>
+                    Returns: <code>{"value":100,"from":"celsius","to":"fahrenheit","result":212}</code>
+                </div>
+            </div>
+            
+            <div class="endpoint-group">
+                <h3>📏 Length Converter</h3>
+                <p>Convert between metric and imperial length units</p>
+                <div class="endpoint-detail">
+                    <span class="endpoint-method">GET</span>
+                    <span class="endpoint-path">/api/length</span>
+                </div>
+                <div class="endpoint-params">
+                    <strong>Parameters:</strong><br>
+                    <code>value</code> (required): Number to convert<br>
+                    <code>from</code> (required): nm, µm, mm, cm, m, km, in, ft, yd, mi<br>
+                    <code>to</code> (required): nm, µm, mm, cm, m, km, in, ft, yd, mi
+                </div>
+                <div class="endpoint-example">
+                    <strong>Example:</strong><br>
+                    <code>/api/length?value=1&from=m&to=ft</code><br>
+                    Returns: <code>{"value":1,"from":"m","to":"ft","result":3.28084}</code>
+                </div>
+            </div>
+            
+            <div class="endpoint-group">
+                <h3>⚖️ Weight Converter</h3>
+                <p>Convert between metric and imperial weight units</p>
+                <div class="endpoint-detail">
+                    <span class="endpoint-method">GET</span>
+                    <span class="endpoint-path">/api/weight</span>
+                </div>
+                <div class="endpoint-params">
+                    <strong>Parameters:</strong><br>
+                    <code>value</code> (required): Number to convert<br>
+                    <code>from</code> (required): mg, g, kg, t, oz, lb, st<br>
+                    <code>to</code> (required): mg, g, kg, t, oz, lb, st
+                </div>
+                <div class="endpoint-example">
+                    <strong>Example:</strong><br>
+                    <code>/api/weight?value=1&from=kg&to=lb</code><br>
+                    Returns: <code>{"value":1,"from":"kg","to":"lb","result":2.20462}</code>
+                </div>
+            </div>
+            
+            <div class="endpoint-group">
+                <h3>🥤 Volume Converter</h3>
+                <p>Convert between liquid volume units</p>
+                <div class="endpoint-detail">
+                    <span class="endpoint-method">GET</span>
+                    <span class="endpoint-path">/api/volume</span>
+                </div>
+                <div class="endpoint-params">
+                    <strong>Parameters:</strong><br>
+                    <code>value</code> (required): Number to convert<br>
+                    <code>from</code> (required): ml, l, kl, tsp, tbsp, fl oz, cup, pt, qt, gal<br>
+                    <code>to</code> (required): ml, l, kl, tsp, tbsp, fl oz, cup, pt, qt, gal
+                </div>
+                <div class="endpoint-example">
+                    <strong>Example:</strong><br>
+                    <code>/api/volume?value=1&from=l&to=gal</code><br>
+                    Returns: <code>{"value":1,"from":"l","to":"gal","result":0.264172}</code>
+                </div>
+            </div>
+            
+            <div class="endpoint-group">
+                <h3>📐 Area Converter</h3>
+                <p>Convert between area measurements</p>
+                <div class="endpoint-detail">
+                    <span class="endpoint-method">GET</span>
+                    <span class="endpoint-path">/api/area</span>
+                </div>
+                <div class="endpoint-params">
+                    <strong>Parameters:</strong><br>
+                    <code>value</code> (required): Number to convert<br>
+                    <code>from</code> (required): mm², cm², m², ha, km², in², ft², yd², ac, mi²<br>
+                    <code>to</code> (required): mm², cm², m², ha, km², in², ft², yd², ac, mi²
+                </div>
+                <div class="endpoint-example">
+                    <strong>Example:</strong><br>
+                    <code>/api/area?value=1&from=m²&to=ft²</code><br>
+                    Returns: <code>{"value":1,"from":"m²","to":"ft²","result":10.7639}</code>
+                </div>
+            </div>
+            
+            <div class="endpoint-group">
+                <h3>📦 Volume (3D) Converter</h3>
+                <p>Convert between cubic volume units</p>
+                <div class="endpoint-detail">
+                    <span class="endpoint-method">GET</span>
+                    <span class="endpoint-path">/api/volume3d</span>
+                </div>
+                <div class="endpoint-params">
+                    <strong>Parameters:</strong><br>
+                    <code>value</code> (required): Number to convert<br>
+                    <code>from</code> (required): mm³, cm³, m³, km³, in³, ft³, yd³<br>
+                    <code>to</code> (required): mm³, cm³, m³, km³, in³, ft³, yd³
+                </div>
+                <div class="endpoint-example">
+                    <strong>Example:</strong><br>
+                    <code>/api/volume3d?value=1&from=m³&to=ft³</code><br>
+                    Returns: <code>{"value":1,"from":"m³","to":"ft³","result":35.3147}</code>
+                </div>
+            </div>
+            
+            <div class="endpoint-group">
+                <h3>⏰ Time Converter</h3>
+                <p>Convert between time units</p>
+                <div class="endpoint-detail">
+                    <span class="endpoint-method">GET</span>
+                    <span class="endpoint-path">/api/time</span>
+                </div>
+                <div class="endpoint-params">
+                    <strong>Parameters:</strong><br>
+                    <code>value</code> (required): Number to convert<br>
+                    <code>from</code> (required): ns, µs, ms, s, min, hr, day, week, month, year<br>
+                    <code>to</code> (required): ns, µs, ms, s, min, hr, day, week, month, year
+                </div>
+                <div class="endpoint-example">
+                    <strong>Example:</strong><br>
+                    <code>/api/time?value=1&from=hr&to=min</code><br>
+                    Returns: <code>{"value":1,"from":"hr","to":"min","result":60}</code>
+                </div>
+            </div>
+        </div>
+        
+        <div class="api-section">
+            <h2>Usage Examples</h2>
+            <div class="example-group">
+                <h3>JavaScript (Fetch API)</h3>
+                <div class="code-block">
+fetch('/api/temperature?value=25&from=celsius&to=fahrenheit')
+  .then(response => response.json())
+  .then(data => {
+    console.log(`${data.value}°${data.from.toUpperCase()} = ${data.result}°${data.to.toUpperCase()}`);
+  });
+                </div>
+            </div>
+            
+            <div class="example-group">
+                <h3>Python (Requests)</h3>
+                <div class="code-block">
+import requests
+
+response = requests.get('https://api.simplecalculators.com/api/length', 
+                       params={'value': 5, 'from': 'ft', 'to': 'm'})
+data = response.json()
+print(f"{data['value']} {data['from']} = {data['result']} {data['to']}")
+                </div>
+            </div>
+            
+            <div class="example-group">
+                <h3>cURL</h3>
+                <div class="code-block">
+curl "https://api.simplecalculators.com/api/weight?value=10&from=lb&to=kg"
+                </div>
+            </div>
+        </div>
+        
+        <div class="api-section">
+            <h2>Rate Limits & Usage Policy</h2>
+            <div class="policy-points">
+                <p><strong>Free Tier:</strong> 1,000 requests per hour per IP address</p>
+                <p><strong>Attribution:</strong> While not required, we appreciate a link back to <a href="/">SimpleCalculators.com</a></p>
+                <p><strong>Prohibited Use:</strong> The API may not be used for:</p>
+                <ul>
+                    <li>Competing services or calculators</li>
+                    <li>High-frequency trading or financial applications</li>
+                    <li>Any unlawful or harmful purpose</li>
+                </ul>
+                <p><strong>Commercial Use:</strong> Contact us for higher rate limits and SLA guarantees</p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Data source: Standard conversion formulas</p>
+            <p>&copy; 2026 Simple Calculators</p>
+        </div>
+    </div>
+    
+    <style>
+        /* Add these styles to enhance the API documentation */
+        .nav {
+            margin-bottom: 2rem;
+        }
+        
+        .back-btn {
+            background: #95a5a6;
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .back-btn:hover {
+            background: #7f8c8d;
+        }
+        
+        .api-status {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .status-item {
+            display: flex;
+        }
+        
+        .status-label {
+            font-weight: bold;
+            color: #2c3e50;
+            min-width: 80px;
+        }
+        
+        .status-value {
+            color: #555;
+        }
+        
+        .status-ok {
+            color: #27ae60;
+            font-weight: bold;
+        }
+        
+        .api-section {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .api-section h2 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+        
+        .endpoint-group {
+            background: #f8f9fa;
+            border-radius: 6px;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-left: 3px solid #3498db;
+        }
+        
+        .endpoint-group h3 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+        
+        .endpoint-detail {
+            background: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            margin: 0.5rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+        
+        .endpoint-method {
+            background: #3498db;
+            color: white;
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        
+        .endpoint-path {
+            color: #2c3e50;
+        }
+        
+        .endpoint-params {
+            background: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            margin: 0.5rem 0;
+        }
+        
+        .endpoint-example {
+            background: #e8f4f8;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            margin: 0.5rem 0;
+            border-left: 3px solid #85c1e9;
+        }
+        
+        .example-group {
+            background: white;
+            border-radius: 6px;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-left: 3px solid #9b59b6;
+        }
+        
+        .example-group h3 {
+            color: #9b59b6;
+            margin-top: 0;
+        }
+        
+        .code-block {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 4px;
+            margin: 0.5rem 0;
+            border-left: 3px solid #bdc3c7;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .policy-points {
+            background: #fff8e1;
+            border-radius: 6px;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-left: 3px solid #ffb74d;
+        }
+        
+        .policy-points ul {
+            margin: 0.5rem 0 0 1.5rem;
+        }
+        
+        .policy-points li {
+            margin: 0.25rem 0;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .api-status {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</body>
+</html>
