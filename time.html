@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Converter - Simple Calculators</title>
+    <meta name="description" content="Convert between time units: seconds, minutes, hours, days, weeks, months, years">
+    <link rel="stylesheet" href="style.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q5KY6BP0VV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Q5KY6BP0VV');
+</script>
+</head>
+<body>
+    <div class="container">
+        <h1>Time Converter</h1>
+        <p class="subtitle">Convert between seconds, minutes, hours, days, weeks, months, and years</p>
+        
+        <div class="converter">
+            <label for="timeValue">Value:</label>
+            <input type="number" id="timeValue" placeholder="Enter value">
+            
+            <label for="timeFrom">From:</label>
+            <select id="timeFrom">
+                <option value="seconds">Seconds</option>
+                <option value="minutes">Minutes</option>
+                <option value="hours">Hours</option>
+                <option value="days">Days</option>
+                <option value="weeks">Weeks</option>
+                <option value="months">Months</option>
+                <option value="years">Years</option>
+            </select>
+            
+            <label for="timeTo">To:</label>
+            <select id="timeTo">
+                <option value="seconds">Seconds</option>
+                <option value="minutes">Minutes</option>
+                <option value="hours">Hours</option>
+                <option value="days">Days</option>
+                <option value="weeks">Weeks</option>
+                <option value="months">Months</option>
+                <option value="years">Years</option>
+            </select>
+            
+            <button type="button" onclick="convertTime()">Convert</button>
+        </div>
+        
+        <div class="result" id="timeResult">
+            <!-- Result will be displayed here -->
+        </div>
+        
+        <div class="info">
+            <h3>Common Time Conversions:</h3>
+            <ul>
+                <li>1 minute = 60 seconds</li>
+                <li>1 hour = 60 minutes = 3,600 seconds</li>
+                <li>1 day = 24 hours = 1,440 minutes = 86,400 seconds</li>
+                <li>1 week = 7 days</li>
+                <li>1 month ≈ 30.44 days (average)</li>
+                <li>1 year = 365.25 days (accounting for leap years)</li>
+            </ul>
+        </div>
+    </div>
+    
+    <script>
+        function convertTime() {
+            const value = parseFloat(document.getElementById('timeValue').value);
+            const fromUnit = document.getElementById('timeFrom').value;
+            const toUnit = document.getElementById('timeTo').value;
+            
+            if (isNaN(value)) {
+                document.getElementById('timeResult').innerHTML = '<p class="error">Please enter a valid number</p>';
+                return;
+            }
+            
+            // Convert to seconds first
+            let seconds;
+            switch (fromUnit) {
+                case 'seconds': seconds = value; break;
+                case 'minutes': seconds = value * 60; break;
+                case 'hours': seconds = value * 3600; break;
+                case 'days': seconds = value * 86400; break;
+                case 'weeks': seconds = value * 604800; break;
+                case 'months': seconds = value * 2629746; // average seconds in a month (365.25/12 * 86400)
+                case 'years': seconds = value * 31557600; // seconds in a year (365.25 * 86400)
+            }
+            
+            // Convert from seconds to target unit
+            let result;
+            switch (toUnit) {
+                case 'seconds': result = seconds; break;
+                case 'minutes': result = seconds / 60; break;
+                case 'hours': result = seconds / 3600; break;
+                case 'days': result = seconds / 86400; break;
+                case 'weeks': result = seconds / 604800; break;
+                case 'months': result = seconds / 2629746; break;
+                case 'years': result = seconds / 31557600; break;
+            }
+            
+            document.getElementById('timeResult').innerHTML = `
+                <p>${value} ${fromUnit} = ${result.toFixed(6)} ${toUnit}</p>
+            `;
+        }
+        
+        // Allow Enter key to trigger conversion
+        document.getElementById('timeValue').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                convertTime();
+            }
+        });
+    </script>
+    
+    <footer>
+        <p>&copy; <span id="year"></span> Simple Calculators. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

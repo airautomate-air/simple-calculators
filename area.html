@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Area Converter - Simple Calculators</title>
+    <meta name="description" content="Instantly convert between square millimeters, centimeters, meters, kilometers, inches, feet, yards, miles, acres, and hectares. Free, no ads, no tracking.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Area Converter</h1>
+        <div class="calculator">
+            <div class="input-group">
+                <label for="area-value">Area:</label>
+                <input type="number" id="area-value" placeholder="Enter value" step="any">
+            </div>
+            <div class="input-group">
+                <label for="area-unit">Unit:</label>
+                <select id="area-unit">
+                    <option value="mm2">Square Millimeters (mm²)</option>
+                    <option value="cm2">Square Centimeters (cm²)</option>
+                    <option value="m2">Square Meters (m²)</option>
+                    <option value="km2">Square Kilometers (km²)</option>
+                    <option value="in2">Square Inches (in²)</option>
+                    <option value="ft2">Square Feet (ft²)</option>
+                    <option value="yd2">Square Yards (yd²)</option>
+                    <option value="mi2">Square Miles (mi²)</option>
+                    <option value="acre">Acres</option>
+                    <option value="hectare">Hectares</option>
+                </select>
+            </div>
+        </div>
+        <div class="results">
+            <h2>Conversions</h2>
+            <div class="result-item" id="result-mm2">Square Millimeters: <span>-</span></div>
+            <div class="result-item" id="result-cm2">Square Centimeters: <span>-</span></div>
+            <div class="result-item" id="result-m2">Square Meters: <span>-</span></div>
+            <div class="result-item" id="result-km2">Square Kilometers: <span>-</span></div>
+            <div class="result-item" id="result-in2">Square Inches: <span>-</span></div>
+            <div class="result-item" id="result-ft2">Square Feet: <span>-</span></div>
+            <div class="result-item" id="result-yd2">Square Yards: <span>-</span></div>
+            <div class="result-item" id="result-mi2">Square Miles: <span>-</span></div>
+            <div class="result-item" id="result-acre">Acres: <span>-</span></div>
+            <div class="result-item" id="result-hectare">Hectares: <span>-</span></div>
+        </div>
+        <p class="hint">Enter a value and select unit to see conversions to all other units.</p>
+    </div>
+    <script src="area.js"></script>
+</body>
+</html>
